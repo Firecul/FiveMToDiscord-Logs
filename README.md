@@ -28,7 +28,7 @@ that has not yet been tested, Please report any bugs or errors.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ### Installation Instructions
-> - [x] Available On Our [Wiki/Docs](https://github.com/TheRealToxicDev/FiveMToDiscord-Logs/wiki)
+> - [x] Available On Our [Docs](https://therealtoxicdev.github.io/FiveMToDiscord-Docs/) Page
 
 > [Download Latest Version Here](https://github.com/TheRealToxicDev/FiveMToDiscord-Logs/releases)
 
