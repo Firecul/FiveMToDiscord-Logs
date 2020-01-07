@@ -32,7 +32,6 @@ that has not yet been tested, Please report any bugs or errors.
 
 > [Download Latest Version Here](https://github.com/TheRealToxicDev/FiveMToDiscord-Logs/releases)
 
-
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ### Additional Support/Contact
 If you are experiencing issues please feel free to Contact me by creating an issue or Joining my discord at the link below!
