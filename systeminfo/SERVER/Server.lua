@@ -260,7 +260,8 @@ function GetIDFromSource(Type, ID) --(Thanks To WolfKnight [forum.FiveM.net])
 end
 
 -- Version Checking down here, better don't touch this
-local CurrentVersion = '1.5.1'
+-- Will throw an error if your version is outdated
+local CurrentVersion = '1.5.2'
 local GithubResourceName = 'FiveMToDiscord'
 
 PerformHttpRequest('https://raw.githubusercontent.com/GrimDesignsFiveM/FiveMToDiscord/master/' .. GithubResourceName .. '/VERSION', function(Error, NewestVersion, Header)
@@ -273,21 +274,24 @@ PerformHttpRequest('https://raw.githubusercontent.com/GrimDesignsFiveM/FiveMToDi
 		print('## Newest Version: ' .. NewestVersion)
 		print('##')
 		if CurrentVersion ~= NewestVersion then
-			print('## Outdated')
-			print('## Check the Topic')
+			print('## FiveMToDiscord Logs Outdated')
+			print('## Check the GitHub releases')
 			print('## For the newest Version!')
+                        print('## https://github.com/TheRealToxicDev/FiveM-Discord-Bot/edit/FiveMToDiscord')
 			print('##############')
 			print('CHANGES: ' .. Changes)
+                        ShowNotification("This server is using an outdated version of FiveMToDiscord Logs visit (github.com/TheRealToxicDev) For Updates")
 		else
-			print('## Up to date!')
+			print('## FiveMToDiscord Logs Up to date!')
 			print('##############')
+                        ShowNotification("FiveMToDiscord Logs is up to date")
 		end
 		print('\n')
 	end)
 end)
 
 -- Bot status down here, better don't touch this
-local Status = 'OUTDATED'
+local Status = 'UpToDate'
 local GithubResourceName = 'FiveMToDiscord'		
 
 PerformHttpRequest('https://raw.githubusercontent.com/GrimDesignsFiveM/FiveMToDiscord/master/' .. GithubResourceName .. '/ONLINE', function(Error, Online, Header)
@@ -298,18 +302,30 @@ PerformHttpRequest('https://raw.githubusercontent.com/GrimDesignsFiveM/FiveMToDi
 		print('##')
 		print('## Status: ' .. Status)
 		print('## Online: ' .. Online)
+                print('## Version: v1.5.2')
+                print('## Author: ToxicDev')
 		print('##')
 		if Status ~= UpToDate then
-			print('## Bot Is Online!')
-			print('##############')
-		else 
-			print('## Bot Is Outdated')
+			print('## FiveMToDiscord Logs Is Currently')
+                        print('Under Maintenance or Being Updated')
 			print('## Check the GitHub')
 			print('## For Status & Updates')
 			print('##############')
 			print('MAINTENANCE: ' .. Maintenance)
 		end
+		else 
+			print('## FiveMToDiscord Logs Is Online and Ready!')
+			print('##############')
+                end
 		print('\n')
 	end)
 end)
+
+-- Show Notifications on the Players Screen! 
+function ShowNotification( text )
+    SetNotificationTextEntry( "STRING" )
+    AddTextComponentString( text )
+    DrawNotification( false, false )
+end
+
 
