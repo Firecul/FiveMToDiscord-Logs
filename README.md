@@ -1,4 +1,4 @@
-[![Build Passing](https://img.shields.io/badge/Build-Passing%20-brightgreen.svg?style=flat)](https://github.com/TheRealToxicDev/FiveMToDiscord-Logs) [![Bot Code Library](https://img.shields.io/badge/Library-discord.js-orange.svg)](https://discord.js.org/#/) [![Version](https://img.shields.io/badge/Version-1.5.2-blue.svg)](https://github.com/TheRealToxicDev/FiveMToDiscord-Logs)
+[![Build Passing](https://img.shields.io/badge/Build-Passing%20-brightgreen.svg?style=flat)](https://github.com/TheRealToxicDev/FiveMToDiscord-Logs) [![Code Library](https://img.shields.io/badge/Library-LUA-orange.svg)](https://www.lua.org/) [![Version](https://img.shields.io/badge/Version-1.5.2-blue.svg)](https://github.com/TheRealToxicDev/FiveMToDiscord-Logs)
 
 ### FiveMToDiscord Logs
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
