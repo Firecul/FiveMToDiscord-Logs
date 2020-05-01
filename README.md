@@ -30,9 +30,8 @@ And Much More See the screenshots below for examples.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ### Installation Instructions
-> - [x] Available On Our [Docs](https://therealtoxicdev.github.io/FiveMToDiscord-Docs/) Page
+> - [x] Available On Our [Docs](http://help.toxicdev.me/docs/instructions/fivem2discord-install) Page
 
-> [Download Latest Version Here](https://github.com/TheRealToxicDev/FiveMToDiscord-Logs/releases)
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ### Additional Support/Contact
