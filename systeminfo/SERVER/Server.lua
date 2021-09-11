@@ -43,7 +43,7 @@ else
 end
 
 -- System Infos
-PerformHttpRequest(DiscordWebhookSystemInfos, function(Error, Content, Head) end, 'POST', json.encode({username = SystemName, content = '**FiveM server webhook started**'}), { ['Content-Type'] = 'application/json' })
+PerformHttpRequest(DiscordWebhookSystemInfos, function(Error, Content, Head) end, 'POST', json.encode({username = SystemName, content = '**FiveM server webhook started**', avatar_url = SystemAvatar}), { ['Content-Type'] = 'application/json' })
 
 AddEventHandler('playerConnecting', function()
 	TriggerEvent('DiscordBot:ToDiscord', 'system', SystemName, '```css\n' .. GetPlayerName(source) .. ' connecting\n```', 'system', source, false, false)
