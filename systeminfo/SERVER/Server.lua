@@ -71,9 +71,20 @@ end)
 
 -- Chat
 AddEventHandler('chatMessage', function(Source, Name, Message)
+
+	--Removing Color Codes (^0, ^1, ^2 etc.) from the name
+	for i = 0, 9 do
+		Name = Name:gsub('%^' .. i, '')
+	end
+
+	-- Shortens the Name, if needed.
+	if Name:len() > 23 then
+		Name = Name:sub(1, 23)
+	end
+
 	TriggerEvent('DiscordBot:ToDiscord', 'chat', Name .. ' [ID: ' .. Source .. ']', Message, 'steam', Source, false, false)
 end)
- 
+
 --Event to actually send Messages to Discord
 RegisterServerEvent('DiscordBot:ToDiscord')
 AddEventHandler('DiscordBot:ToDiscord', function(WebHook, Name, Message, Image, Source, TTS, FromChatResource)
@@ -104,8 +115,8 @@ AddEventHandler('DiscordBot:ToDiscord', function(WebHook, Name, Message, Image, 
 		TTS = false
 	end
  
+ 	--Removing Color Codes (^0, ^1, ^2 etc.) from the message
 	for i = 0, 9 do
-		Name = Name:gsub('%^' .. i, '')
 		Message = Message:gsub('%^' .. i, '')
 	end
 
@@ -145,12 +156,7 @@ AddEventHandler('DiscordBot:ToDiscord', function(WebHook, Name, Message, Image, 
 		
 		--Adding the userid if needed
 		Message = Message:gsub('USERID_NEEDED_HERE', Source)
-		
-		-- Shortens the Name, if needed
-		if Name:len() > 23 then
-			Name = Name:sub(1, 23)
-		end
- 
+
 		--Getting the steam avatar if available
 		if Source ~= 0 and GetIDFromSource('steam', Source) then
 			PerformHttpRequest('http://steamcommunity.com/profiles/' .. tonumber(GetIDFromSource('steam', Source), 16) .. '/?xml=1', function(Error, Content, Head)
