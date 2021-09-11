@@ -41,10 +41,10 @@ else
 		end
 	end)
 end
-	
+
 -- System Infos
 PerformHttpRequest(DiscordWebhookSystemInfos, function(Error, Content, Head) end, 'POST', json.encode({username = SystemName, content = '**FiveM server webhook started**'}), { ['Content-Type'] = 'application/json' })
- 
+
 AddEventHandler('playerConnecting', function()
 	TriggerEvent('DiscordBot:ToDiscord', 'system', SystemName, '```css\n' .. GetPlayerName(source) .. ' connecting\n```', 'system', source, false, false)
 end)
@@ -57,9 +57,9 @@ end)
 RegisterServerEvent('DiscordBot:PlayerDied')
 AddEventHandler('DiscordBot:PlayerDied', function(Message, Weapon)
 	local date = os.date('*t')
-	
-	if date.month < 10 then date.month = '0' .. tostring(date.month) end
+
 	if date.day < 10 then date.day = '0' .. tostring(date.day) end
+	if date.month < 10 then date.month = '0' .. tostring(date.month) end
 	if date.hour < 10 then date.hour = '0' .. tostring(date.hour) end
 	if date.min < 10 then date.min = '0' .. tostring(date.min) end
 	if date.sec < 10 then date.sec = '0' .. tostring(date.sec) end
@@ -68,7 +68,7 @@ AddEventHandler('DiscordBot:PlayerDied', function(Message, Weapon)
 	end
 	TriggerEvent('DiscordBot:ToDiscord', 'kill', SystemName, Message .. ' `' .. date.day .. '.' .. date.month .. '.' .. date.year .. ' - ' .. date.hour .. ':' .. date.min .. ':' .. date.sec .. '`', 'system', source, false, false)
 end)
- 
+
 -- Chat
 AddEventHandler('chatMessage', function(Source, Name, Message)
 	TriggerEvent('DiscordBot:ToDiscord', 'chat', Name .. ' [ID: ' .. Source .. ']', Message, 'steam', Source, false, false)
