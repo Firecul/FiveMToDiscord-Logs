@@ -82,7 +82,7 @@ AddEventHandler('chatMessage', function(Source, Name, Message)
 		Name = Name:sub(1, 23)
 	end
 
-	TriggerEvent('DiscordBot:ToDiscord', 'chat', Name .. ' [ID: ' .. Source .. ']', Message, 'steam', Source, false, false)
+	TriggerEvent('DiscordBot:ToDiscord', 'chat', Name .. ' [ID: ' .. Source .. ']', Message, 'image', Source, false, false)
 end)
 
 --Event to actually send Messages to Discord
@@ -103,19 +103,20 @@ AddEventHandler('DiscordBot:ToDiscord', function(WebHook, Name, Message, Image, 
 		print('Please specify a webhook link!')
 		return nil
 	end
-	
-	if Image:lower() == 'user' then
-		Image = UserAvatar
-	elseif Image:lower() == 'system' then
+
+	if Name == 'console [ID: 0]' then
 		Image = SystemAvatar
+	elseif Name == SystemName then
+		Image = SystemAvatar
+	else
+		Image = UserAvatar
 	end
-	
 
 	if not TTS or TTS == '' then
 		TTS = false
 	end
- 
- 	--Removing Color Codes (^0, ^1, ^2 etc.) from the message
+
+	--Removing Color Codes (^0, ^1, ^2 etc.) from the message
 	for i = 0, 9 do
 		Message = Message:gsub('%^' .. i, '')
 	end
