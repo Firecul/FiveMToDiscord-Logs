@@ -77,10 +77,11 @@ end)
 --Event to actually send Messages to Discord
 RegisterServerEvent('DiscordBot:ToDiscord')
 AddEventHandler('DiscordBot:ToDiscord', function(WebHook, Name, Message, Image, Source, TTS, FromChatResource)
+
 	if Message == nil or Message == '' then
 		return nil
 	end
- 
+
 	if WebHook:lower() == 'chat' then
 		WebHook = DiscordWebhookChat
 	elseif WebHook:lower() == 'system' then
@@ -98,6 +99,7 @@ AddEventHandler('DiscordBot:ToDiscord', function(WebHook, Name, Message, Image, 
 		Image = SystemAvatar
 	end
 	
+
 	if not TTS or TTS == '' then
 		TTS = false
 	end
@@ -106,32 +108,34 @@ AddEventHandler('DiscordBot:ToDiscord', function(WebHook, Name, Message, Image, 
 		Name = Name:gsub('%^' .. i, '')
 		Message = Message:gsub('%^' .. i, '')
 	end
- 
+
+	--Splitting the message in multiple strings
 	MessageSplitted = stringsplit(Message, ' ')
- 
+
 	if FromChatResource and not IsCommand(MessageSplitted, 'Registered') then
 		return nil
 	end
-	
+
+	--Checking if the message contains a blacklisted command
 	if not IsCommand(MessageSplitted, 'Blacklisted') and not (WebHook == DiscordWebhookSystemInfos or WebHook == DiscordWebhookKillinglogs) then
 		--Checking if the message contains a command which has his own webhook
 		if IsCommand(MessageSplitted, 'HavingOwnWebhook') then
 			Webhook = GetOwnWebhook(MessageSplitted)
 		end
-		
+
 		--Checking if the message contains a special command
 		if IsCommand(MessageSplitted, 'Special') then
 			MessageSplitted = ReplaceSpecialCommand(MessageSplitted)
 		end
-		
+
 		---Checking if the message contains a command which belongs into a tts channel
 		if IsCommand(MessageSplitted, 'TTS') then
 			TTS = true
 		end
-		
+
 		--Combining the message to one string again
 		Message = table.concat(MessageSplitted, ' ')
-		
+
 		--Adding the username if needed
 		if Source == 0 then
 			Message = Message:gsub('USERNAME_NEEDED_HERE', 'Remote Console')
@@ -166,7 +170,7 @@ AddEventHandler('DiscordBot:ToDiscord', function(WebHook, Name, Message, Image, 
 		PerformHttpRequest(WebHook, function(Error, Content, Head) end, 'POST', json.encode({username = Name, content = Message, avatar_url = Image, tts = TTS}), {['Content-Type'] = 'application/json'})
 	end
 end)
- 
+
 -- Functions
 function IsCommand(String, Type)
 	if Type == 'Blacklisted' then
@@ -203,7 +207,7 @@ function IsCommand(String, Type)
 	end
 	return false
 end
- 
+
 function ReplaceSpecialCommand(String)
 	for i, SpecialCommand in ipairs(SpecialCommands) do
 		if String[1]:lower() == SpecialCommand[1]:lower() then
@@ -212,7 +216,7 @@ function ReplaceSpecialCommand(String)
 	end
 	return String
 end
- 
+
 function GetOwnWebhook(String)
 	for i, OwnWebhookCommand in ipairs(OwnWebhookCommands) do
 		if String[1]:lower() == OwnWebhookCommand[1]:lower() then
@@ -225,31 +229,31 @@ function GetOwnWebhook(String)
 		end
 	end
 end
- 
+
 function stringsplit(input, seperator)
 	if seperator == nil then
 		seperator = '%s'
 	end
-	
+
 	local t={} ; i=1
-	
+
 	for str in string.gmatch(input, '([^'..seperator..']+)') do
 		t[i] = str
 		i = i + 1
 	end
-	
+
 	return t
 end
- 
+
 function GetIDFromSource(Type, ID) --(Thanks To WolfKnight [forum.FiveM.net])
-    local IDs = GetPlayerIdentifiers(ID)
-    for k, CurrentID in pairs(IDs) do
-        local ID = stringsplit(CurrentID, ':')
-        if (ID[1]:lower() == string.lower(Type)) then
-            return ID[2]:lower()
-        end
-    end
-    return nil
+	local IDs = GetPlayerIdentifiers(ID)
+	for k, CurrentID in pairs(IDs) do
+		local ID = stringsplit(CurrentID, ':')
+		if (ID[1]:lower() == string.lower(Type)) then
+			return ID[2]:lower()
+		end
+	end
+	return nil
 end
  
 -- Version Checking down here, better don't touch this
@@ -278,5 +282,4 @@ PerformHttpRequest('https://raw.githubusercontent.com/GrimDesignsFiveM/FiveMToDi
 		print('\n')
 	end)
 end)
- 
  
