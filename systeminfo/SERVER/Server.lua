@@ -132,7 +132,7 @@ AddEventHandler('DiscordBot:ToDiscord', function(WebHook, Name, Message, Image, 
 	if not IsCommand(MessageSplitted, 'Blacklisted') and not (WebHook == DiscordWebhookSystemInfos or WebHook == DiscordWebhookKillinglogs) then
 		--Checking if the message contains a command which has his own webhook
 		if IsCommand(MessageSplitted, 'HavingOwnWebhook') then
-			Webhook = GetOwnWebhook(MessageSplitted)
+			WebHook = GetOwnWebhook(MessageSplitted)
 		end
 
 		--Checking if the message contains a special command
