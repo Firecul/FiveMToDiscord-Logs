@@ -1,30 +1,33 @@
--- Discord Webhook Links (Replace these with your own Links) 
+-- Discord Webhook Links
 -- Need help setting it up? (https://support.discordapp.com/hc/en-us/articles/228383668-Intro-to-Webhooks)
-DiscordWebhookSystemInfos = 'YOUR_WEBHOOK_HERE'
-DiscordWebhookKillinglogs = 'YOUR_WEBHOOK_HERE'
-DiscordWebhookChat = 'YOUR_WEBHOOK_HERE'
+
+DiscordWebhookSystemInfos = 'YOUR_WEBHOOK_HERE' -- Replace "WEBHOOK_HERE" Or Error
+DiscordWebhookKillinglogs = 'YOUR_WEBHOOK_HERE' -- Replace "WEBHOOK_HERE" Or Error
+DiscordWebhookChat = 'YOUR_WEBHOOK_HERE' -- Replace "WEBHOOK_HERE" Or Error
 
 -- Bot/Client Avatar and UserName
-SystemAvatar = 'https://wiki.fivem.net/w/images/d/db/FiveM-Wiki.png'
+SystemAvatar = 'https://wiki.fivem.net/w/images/d/db/FiveM-Wiki.png'		-- Bot Avatar (FiveM Logo By Default https://wiki.fivem.net/w/images/d/db/FiveM-Wiki.png )
 
-UserAvatar = 'https://i.imgur.com/KIcqSYs.png' -- Change this to a linn of your choice
+UserAvatar = 'IMAGE_LINK_HERE' -- Change this to a link of your choice (Example https://i.imgur.com/KIcqSYs.png)
 
-SystemName = 'NAORP Bot' -- Change this to a name of your choice!
+SystemName = 'SYSTEM' -- Change this to a name of your choice!
 
 -- How To Format and Setup Special Commands
---[[ Special Commands formatting
-		 *YOUR_TEXT*			--> Make Text Italics in Discord
+--[[
+	Special Commands formatting
+		*YOUR_TEXT*			--> Make Text Italics in Discord
 		**YOUR_TEXT**			--> Make Text Bold in Discord
-	   ***YOUR_TEXT***			--> Make Text Italics & Bold in Discord
+		***YOUR_TEXT***			--> Make Text Italics & Bold in Discord
 		__YOUR_TEXT__			--> Underline Text in Discord
-	   __*YOUR_TEXT*__			--> Underline Text and make it Italics in Discord
-	  __**YOUR_TEXT**__			--> Underline Text and make it Bold in Discord
-	 __***YOUR_TEXT***__		--> Underline Text and make it Italics & Bold in Discord
+		__*YOUR_TEXT*__			--> Underline Text and make it Italics in Discord
+		__**YOUR_TEXT**__			--> Underline Text and make it Bold in Discord
+		__***YOUR_TEXT***__		--> Underline Text and make it Italics & Bold in Discord
 		~~YOUR_TEXT~~			--> Strikethrough Text in Discord
 ]]
 
 -- Use 'USERNAME_NEEDED_HERE' without the quotes if you need a Users Name in a special command
 -- Use 'USERID_NEEDED_HERE' without the quotes if you need a Users ID in a special command
+
 
 -- These Are Your Special Commands!!
 -- These special commands will be printed differently in discord, depending on what you set it to
@@ -70,4 +73,3 @@ TTSCommands = {
 			   '/Whatever',
 			   '/Whatever2',
 			  }
-
